@@ -1,0 +1,33 @@
+#Timer Fase Um
+
+import time
+
+t = 180
+
+[print(t := t - 1) or time.sleep(1) for i in range(t)]
+
+if t
+
+#Timer Fase Dois
+
+t = 210
+
+[print(t := t - 1) or time.sleep(1) for i in range(t)]
+
+#Timer Fase Três
+
+t = 240
+
+[print(t := t - 1) or time.sleep(1) for i in range(t)]
+
+#Timer Fase Quatro
+
+t = 270
+
+[print(t := t - 1) or time.sleep(1) for i in range(t)]
+
+#Timer Fase Cinco
+
+t = 300
+
+[print(t := t - 1) or time.sleep(1) for i in range(t)]
