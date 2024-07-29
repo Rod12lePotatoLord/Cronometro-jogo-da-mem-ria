@@ -1,0 +1,50 @@
+import time
+
+# Tempo restante da fase anterior
+tempo_restante_fase_anterior = 0
+
+def iniciar_fase(duracao_fase):
+    global tempo_restante_fase_anterior
+
+    tempo_inicial = time.time()
+    tempo_final = tempo_inicial + duracao_fase
+    
+    # Usar o tempo restante da fase anterior, se houver
+    tempo_final += tempo_restante_fase_anterior
+    tempo_restante_fase_anterior = 0
+    
+    print(f"Iniciando fase com tempo total de {duracao_fase + tempo_restante_fase_anterior:.2f} segundos.")
+    
+    while time.time() < tempo_final:
+        tempo_restante = tempo_final - time.time()
+        print(f"Tempo restante na fase: {tempo_restante:.2f} segundos", end="\r")
+        time.sleep(1)
+    
+    print("\nFase concluída!")
+    tempo_restante_fase_anterior = tempo_final - time.time()
+    print(f"Tempo restante guardado para a próxima fase: {tempo_restante_fase_anterior:.2f} segundos.")
+
+def main():
+    duracao_fase_1 = 180  # Duração da primeira fase em segundos
+    duracao_fase_2 = 210  # Duração da segunda fase em segundos
+    duracao_fase_3 = 240  # Duração da terceira fase em segundos
+    duracao_fase_4 = 270  # Duração da quarta fase em segundos
+    duracao_fase_5 = 300  # Duração da quinta fase em segundos
+    
+    print("Fase 1:")
+    iniciar_fase(duracao_fase_1)
+    
+    print("\nFase 2:")
+    iniciar_fase(duracao_fase_2)
+
+    print("\nFase 3:")
+    iniciar_fase(duracao_fase_3)
+
+    print("\nFase 4: ")
+    iniciar_fase(duracao_fase_4)
+
+    print("\nFase 5: ")
+    iniciar_fase(duracao_fase_5)
+
+if __name__ == "__main__":
+    main()
